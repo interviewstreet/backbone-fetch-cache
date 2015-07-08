@@ -110,10 +110,10 @@
     if (!key) { return; }
 
     // Never set the cache if user has explicitly said not to
-    if (opts.cache === false) { return; }
+    if (opts.cached === false) { return; }
 
     // Don't set the cache unless cache: true or prefill: true option is passed
-    if (!(opts.cache || opts.prefill)) { return; }
+    if (!(opts.cached || opts.prefill)) { return; }
 
     if (opts.expires !== false) {
       expires = (new Date()).getTime() + ((opts.expires || 5 * 60) * 1000);
@@ -234,7 +234,7 @@
       attributes = data.value;
     }
 
-    if (!expired && (opts.cache || opts.prefill) && attributes) {
+    if (!expired && (opts.cached || opts.prefill) && attributes) {
       // Ensure that cache resolution adhers to async option, defaults to true.
       if (opts.async == null) { opts.async = true; }
 
@@ -335,7 +335,7 @@
       attributes = data.value;
     }
 
-    if (!expired && (opts.cache || opts.prefill) && attributes) {
+    if (!expired && (opts.cached || opts.prefill) && attributes) {
       // Ensure that cache resolution adhers to async option, defaults to true.
       if (opts.async == null) { opts.async = true; }
 
